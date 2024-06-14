@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import WeatherCard from './WeatherCard';
+import Clear from '../assets/images/Clear.jpg';
+import Cloudy from '../assets/images/Cloudy.jpg';
+import Fog from '../assets/images/fog.png';
+import Rainy from '../assets/images/Rainy.jpg';
+import Snowy from '../assets/images/snow.jpg';
+import Stormy from '../assets/images/Stormy.jpg';
+import Sunny from '../assets/images/Sunny.jpg';
 
 const WeatherApp = () => {
     const [weatherData, setWeatherData] = useState(null);
@@ -36,9 +43,40 @@ const WeatherApp = () => {
         }
     };
 
+    const getBackgroundImage = (weatherCondition) => {
+        switch (weatherCondition) {
+            case 'Clear':
+                return Clear;
+            case 'Clouds':
+                return Cloudy;
+            case 'Fog':
+            case 'Mist':
+            case 'Haze':
+                return Fog;
+            case 'Rain':
+                return Rainy;
+            case 'Snow':
+                return Snowy;
+            case 'Thunderstorm':
+                return Stormy;
+            default:
+                return Sunny;
+        }
+    };
+
+    const backgroundImage = weatherData ? getBackgroundImage(weatherData.weather[0].main) : null;
+
     return (
-        <div className="container flex flex-col items-center p-4 mx-auto">
-            <h1 className="mb-6 text-4xl font-bold">Weather App</h1>
+        <div
+            className="container flex flex-col items-center p-4 mx-auto"
+            style={{
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '100vh'
+            }}
+        >
+            <h1 className="mb-6 text-4xl font-bold text-white">Weather App</h1>
             <SearchBar onSearch={fetchWeather} />
             {loading && <p className="text-blue-500">Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
