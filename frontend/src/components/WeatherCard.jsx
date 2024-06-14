@@ -5,16 +5,16 @@ const WeatherCard = ({ weatherData }) => {
     const [{ description, icon }] = weather;
 
     return (
-        <div className="max-w-sm p-6 mx-auto text-center bg-white rounded-lg shadow-md opacity-50">
-            <h2 className="mb-2 text-3xl font-bold">{name}</h2>
+        <div className="w-full p-6 mt-6 text-center bg-white rounded-lg shadow-lg bg-opacity-90">
+            <h2 className="mb-2 text-3xl font-bold text-gray-800">{name}</h2>
             <img 
                 src={`http://openweathermap.org/img/wn/${icon}@2x.png`} 
                 alt={description} 
                 className="mx-auto"
             />
-            <p className="text-xl capitalize">{description}</p>
-            <p className="my-3 text-5xl font-bold">{Math.round(main.temp)}°C</p>
-            <div className="flex justify-around mt-4">
+            <p className="text-xl text-gray-600 capitalize">{description}</p>
+            <p className="my-3 text-5xl font-bold text-gray-800">{Math.round(main.temp)}°C</p>
+            <div className="flex justify-around mt-4 text-gray-600">
                 <div>
                     <p className="text-sm">Humidity</p>
                     <p className="font-bold">{main.humidity}%</p>

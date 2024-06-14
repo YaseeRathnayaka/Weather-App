@@ -64,7 +64,7 @@ const WeatherApp = () => {
         }
     };
 
-    const backgroundImage = weatherData ? getBackgroundImage(weatherData.weather[0].main) : null;
+    const backgroundImage = weatherData ? getBackgroundImage(weatherData.weather[0].main) : Clear;
 
     return (
         <div
@@ -75,7 +75,7 @@ const WeatherApp = () => {
                 backgroundPosition: 'center',
             }}
         >
-            <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-lg bg-opacity-70">
+            <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-lg bg-opacity-80">
                 <h1 className="mb-6 text-4xl font-bold text-center text-gray-800">Weather App</h1>
                 <SearchBar onSearch={fetchWeather} />
                 {loading && <p className="mt-4 text-center text-blue-500">Loading...</p>}
