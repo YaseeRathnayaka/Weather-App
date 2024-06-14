@@ -5,19 +5,24 @@ const SearchBar = ({ onSearch }) => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        onSearch(city);
+        if (city.trim()) {
+            onSearch(city);
+        }
     };
 
     return (
-        <form onSubmit={handleSearch} className="mb-4">
+        <form onSubmit={handleSearch} className="flex justify-center mb-4">
             <input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Enter city"
-                className="p-2 border border-gray-400 rounded"
+                className="w-64 p-3 border border-gray-400 rounded-l-lg focus:outline-none focus:ring focus:border-blue-300"
             />
-            <button type="submit" className="ml-2 p-2 bg-blue-500 text-white rounded">
+            <button 
+                type="submit" 
+                className="p-3 text-white bg-blue-500 rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+            >
                 Search
             </button>
         </form>

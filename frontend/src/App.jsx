@@ -4,7 +4,7 @@ import './index.css';
 
 function App() {
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-indigo-500">
             <WeatherApp />
         </div>
     );

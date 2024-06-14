@@ -37,9 +37,10 @@ const WeatherApp = () => {
     };
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container flex flex-col items-center p-4 mx-auto">
+            <h1 className="mb-6 text-4xl font-bold">Weather App</h1>
             <SearchBar onSearch={fetchWeather} />
-            {loading && <p>Loading...</p>}
+            {loading && <p className="text-blue-500">Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
             {weatherData && <WeatherCard weatherData={weatherData} />}
         </div>
