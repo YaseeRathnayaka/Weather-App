@@ -68,19 +68,20 @@ const WeatherApp = () => {
 
     return (
         <div
-            className="container flex flex-col items-center p-4 mx-auto"
+            className="container flex flex-col items-center justify-center min-h-screen p-4 mx-auto"
             style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                minHeight: '100vh'
             }}
         >
-            <h1 className="mb-6 text-4xl font-bold text-white">Weather App</h1>
-            <SearchBar onSearch={fetchWeather} />
-            {loading && <p className="text-blue-500">Loading...</p>}
-            {error && <p className="text-red-500">{error}</p>}
-            {weatherData && <WeatherCard weatherData={weatherData} />}
+            <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-lg bg-opacity-70">
+                <h1 className="mb-6 text-4xl font-bold text-center text-gray-800">Weather App</h1>
+                <SearchBar onSearch={fetchWeather} />
+                {loading && <p className="mt-4 text-center text-blue-500">Loading...</p>}
+                {error && <p className="mt-4 text-center text-red-500">{error}</p>}
+                {weatherData && <WeatherCard weatherData={weatherData} />}
+            </div>
         </div>
     );
 };

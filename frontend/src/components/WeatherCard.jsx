@@ -5,7 +5,7 @@ const WeatherCard = ({ weatherData }) => {
     const [{ description, icon }] = weather;
 
     return (
-        <div className="max-w-sm p-6 mx-auto text-center bg-white rounded-lg shadow-md">
+        <div className="max-w-sm p-6 mx-auto text-center bg-white rounded-lg shadow-md opacity-50">
             <h2 className="mb-2 text-3xl font-bold">{name}</h2>
             <img 
                 src={`http://openweathermap.org/img/wn/${icon}@2x.png`} 
